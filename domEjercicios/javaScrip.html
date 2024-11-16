@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="caja">
+        <h1 id="titulo">Saludo</h1>
+        <p id="mensaje">Mensaje al cliente</p>
+        <button onclick="CambiarTexto()">Cambiar</button>
+    </div>
+    <div class="caja">caja 2</div>
+    <div class="caja">caja 3</div>
+    <div class="caja">caja 4</div>
+</body>
+    <script>
+        function CambiarTexto(){
+            var elemento=document.getElementById("titulo");
+            elemento.innerHTML ="Hola mundo...";
+            CambiarMensaje("Kevin Olivares");
+
+            var datoId = document.getElementById("titulo");
+            console.log(datoId)
+            var datoClassName = document.getElementsByClassName("caja");
+            console.log(datoClassName);
+            console.log(typeof(datoClassName));
+            for (let i=0; i<datoClassName.length; i++){
+                console.log(datoClassName[i]);
+            }
+        }
+        function CambiarMensaje(nombreCliente){
+            let elemento=document.getElementById("mensaje");
+            elemento.innerHTML="Salida desde el mundo del javaScrip";
+        }
+    </script>
+</html>

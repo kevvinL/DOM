@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .class1{
+            color: red;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 45px;
+        }
+    </style>
+</head>
+<body>
+    <div class="class1">
+        <p>hola mundo</p>
+        <button onclick="removedor()">remover</button>
+    </div>
+    <script>
+        function removedor() {
+            const DOM = document.querySelector(".class1");
+            DOM.removeAttribute("class");
+            console.log(DOM);
+        };
+    </script>
+</div>
+</body>
+</html>

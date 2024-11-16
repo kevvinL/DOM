@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Tareas</title>
+  <style>
+    .tarea {margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+    .importante { color: red; font-weight: bold; }
+    .realizada { text-decoration: line-through; }
+  </style>
+</head>
+<body>
+  <h1>Gestor de Tareas</h1>
+  
+  <input type="text" id="tareaNombre" placeholder="Descripción de la tarea">
+  <label>
+    <input type="checkbox" id="alto"> alto
+    <input type="checkbox" id="bajo"> bajo
+  </label>
+  <button onclick="agregarTarea()">Agregar Tarea</button>
+  
+  <div id="listaTareas"></div>
+
+  <script>
+    function agregarTarea() {
+      const tareaNombre = document.getElementById("tareaNombre").value;
+      const alto = document.getElementById("alto").checked;
+      if (tareaNombre.trim() === "") return alert("Escribe una descripción para la tarea");
+
+      const tareaDiv = document.createElement("div");
+      tareaDiv.classList.add("tarea");
+      if (alto) tareaDiv.classList.add("alto");
+
+      const textoTarea = document.createElement("span");
+      textoTarea.textContent = tareaNombre;
+      
+      const checkboxRealizada = document.createElement("input");
+      checkboxRealizada.type = "checkbox";
+      checkboxRealizada.onchange = () => {
+        textoTarea.classList.toggle("realizada", checkboxRealizada.checked);
+      };
+      
+      tareaDiv.appendChild(checkboxRealizada);
+      tareaDiv.appendChild(textoTarea);
+      document.getElementById("listaTareas").appendChild(tareaDiv);
+      
+      document.getElementById("tareaNombre").value = "";
+      document.getElementById("alto").checked = false;
+      document.getElementById("bajo").checked = false;
+    }
+  </script>
+</body>
+</html>
